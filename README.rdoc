@@ -7,11 +7,13 @@ Request persistent variables for your controllers. The usage:
        
        session_vars :postcode, :service_id
 
-Means that there are @postcode and @service_id variables, which live in session['ExampleController'].
+Means that there are @postcode and @service_id variables, which dont lose their value across requests. They live in *session['ExampleController']*.
 
 They live there until they are not set to nil or *erase_session_vars* are called.
 
-Somethimes they are practical, especialy for rich (app-like) front-ends where view depends on a lot of user choices. Then an kind-of traditional black-box abstraction comes handy: We have a black box (controller) with a colorful window (view). Our box has many buttons and knobs (requests) that changes the window color somehow. Or it can be said: Color of the window depends on the position of the buttons and knobs. Then it is useful to remember state of the knobs and buttons across requests.
+Somethimes they are practical, especialy for rich (app-like) front-ends where view depends on a lot of user choices. Then a kind-of traditional black-box abstraction comes handy: We have a black box (controller) with a colorful window (view). Our box has many buttons and knobs (requests) that changes the window color. 
+
+Or it can be said: Color of the window depends on the position of the buttons and knobs. Then it is useful to remember state of the knobs and buttons across requests.
 
 Little piece of philosphy :) Peace.
 
