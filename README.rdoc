@@ -1,16 +1,19 @@
 = session_vars
 
-Description goes here.
+Request persistent variables for your controllers. The usage:
 
-== Contributing to session_vars
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+    class ExampleController << ApplicationController:Base
+       include SessionVars
+       
+       session_vars :postcode, :service_id
+
+Means that there are @postcode and @service_id variables, which live in session['ExampleController'].
+
+They live there until they are not set to nil or *erase_session_vars* are called.
+
+Somethimes they are practical, especialy for rich (app-like) front-ends where view depends on a lot of user choices. Then an kind-of traditional black-box abstraction comes handy: We have a black box (controller) with a colorful window (view). Our box has many buttons and knobs (requests) that changes the window color somehow. Or it can be said: Color of the window depends on the position of the buttons and knobs. Then it is useful to remember state of the knobs and buttons across requests.
+
+Little piece of philosphy :) Peace.
 
 == Copyright
 
