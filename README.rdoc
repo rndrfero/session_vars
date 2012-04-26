@@ -7,7 +7,9 @@ Request persistent variables for your controllers. The usage:
        
        session_vars :postcode, :service_id
 
-Means that there are @postcode and @service_id variables, which dont lose their value across requests. They live in session['ExampleController'].
+Means that there are @postcode and @service_id variables, which dont lose their value across requests. They live in:
+
+    session['ExampleController'].
 
 They live there until they are not set to nil or *erase_session_vars* are called.
 
